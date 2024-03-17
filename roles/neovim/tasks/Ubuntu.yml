@@ -12,6 +12,19 @@
     state: present
   become: true
 
+- name: "Neovim | Download and Add Neovim Key to Apt-Get Keyring"
+  ansible.builtin.apt_key:
+    url: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9dbb0be9366964f134855e2255f96fcf8231b6dd"
+    keyring: "/etc/apt/trusted.gpg.d/neovim.gpg"
+    state: present
+  become: true
+
+- name: "Neovim | Add Neovim Repository into /etc/apt/sources.list"
+  ansible.builtin.apt_repository:
+    repo: "deb [arch={{ ansible_machine | replace('x86_64', 'amd64') }}] https://ppa.launchpadcontent.net/neovim-ppa/unstable/ubuntu {{ ansible_distribution_release | lower }} main"
+    state: present
+  become: true
+
 - name: "Neovim | {{ ansible_distribution }} | Install"
   ansible.builtin.apt:
     name: neovim
