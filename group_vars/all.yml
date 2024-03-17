@@ -5,20 +5,20 @@ default_roles:
   #- asciiquarium
   #- bash
   #- bat
-  #- docker
+  - docker
   #- flatpak
   #- fonts
-  #- fzf
-  #- git
+  - fzf
+  - git
   #- go
   #- helm
   #- k8s
   #- k9s
-  #- lazygit
+  - lazygit
   #- lua
   #- nala
   #- neofetch
-  #- neovim
+  - neovim
   #- npm
   - nvm
   #- obsidian
