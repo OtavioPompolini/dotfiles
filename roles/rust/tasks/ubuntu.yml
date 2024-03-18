@@ -8,3 +8,4 @@
   loop:
     - rustc
     - cargo
+    - cargo-watch
